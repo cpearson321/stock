@@ -21,13 +21,10 @@ Commit this file to your repository and push it to GitHub using GitHub Desktop, 
 class Portfolio:
 
     def __init__(self):
-        pass
+        self._stocks = []
 
     def buy(self, name, shares, price):
-        self.name = name
-        self.shares = shares
-        self.price = price
+        self._stocks.append((name, shares, price))
 
     def cost(self):
-        portfolio_cost = self.shares * self.price
-        return portfolio_cost
+        return sum(shares * price for _, shares, price in self._stocks)
